@@ -1,10 +1,16 @@
 #include <stdio.h>
 #include <string.h>
+#include "Receita.h"
 int main()
 {
-    char listaReceita [20][200];
+
+    struct Receita receita[20];
+    strcpy(receita[0].nomeReceita,"Pizza");
+
+    char listaReceita [20][100];
     char opcao[200];
-    int encontrou = 0;
+    int encontrou;
+
 
     strcpy(listaReceita[0],"Pizza");
     strcpy(listaReceita[1],"bolo de chocolate\n");
@@ -51,7 +57,9 @@ int main()
     quantidade[18] = 7;
     quantidade[19] = 17;
 
-
+    for(int  i = 0; i < 20; i++){
+        printf("receita %s %d:",listaReceita[i],i);
+    }
     for(int i = 0; i < 20; i++)
     {
         if(strcmp(opcao,listaReceita[i])==0)
