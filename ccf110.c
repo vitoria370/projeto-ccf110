@@ -8,11 +8,14 @@ int main()
     strcpy(receita[0].nomeReceita,"Pizza");
 
     // ADICIONAR OS NOMES DAS RECEITAS NO VETOR receita
+    // ASSIM COMO ESSE TRECHO AÍ EM CIMA, PARA CADA NOME DE RECEITA
 
     char listaReceita [20][100];
     char opcao[200];
     int encontrou;
 
+    // ADICIONAR OS MODOS DE PREPARO DE CADA RECEITA
+    // AQUI É PARECIDO COM A PARTE DE CIMA ONDE VOCÊ ADICIONOU OS NOMES DAS RECEITAS
 
     strcpy(listaReceita[0],"Pizza");
     strcpy(listaReceita[1],"bolo de chocolate\n");
@@ -59,9 +62,18 @@ int main()
     quantidade[18] = 7;
     quantidade[19] = 17;
 
-    for(int  i = 0; i < 20; i++){
-        printf("receita %s %d:",listaReceita[i],i);
-    }
+    // PRINT DE TODOS OS NOMES DE RECEITAS E O ÍNDICE DELAS
+    // "ÍNDICE. NOME"
+
+
+    // SCANF DA OPÇÃO DO USUÁRIO
+    // O SCANF AQUI É PARA SER DE UM NÚMERO INTEIRO QUE SERÁ O ÍNDICE DA RECEITA
+
+
+    // UM IF ELSE PARA RETORNAR MENSAGENS DE ERRO CASO O USUÁRIO DIGITE UM NÚMERO MAIOR QUE O DA LISTA
+    // VOCÊ VAI COLOCAR ESSE IF ELSE EM UMA FUNÇÃO. PODE SER DEPOIS.
+
+
     for(int i = 0; i < 20; i++)
     {
         if(strcmp(opcao,listaReceita[i])==0)
