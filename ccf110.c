@@ -7,6 +7,8 @@ int main()
     struct Receita receita[20];
     strcpy(receita[0].nomeReceita,"Pizza");
 
+    // ADICIONAR OS NOMES DAS RECEITAS NO VETOR receita
+
     char listaReceita [20][100];
     char opcao[200];
     int encontrou;
