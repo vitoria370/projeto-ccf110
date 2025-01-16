@@ -1,87 +1,104 @@
 #include <stdio.h>
 #include <string.h>
 #include "Receita.h"
+
+void listarReceitas(struct Receita *receitas,int total)
+{
+    printf("Receitas disponiveis:\n");
+    for(int i =0;i , total; i++)
+    {
+        printf("%d. %s\n",i + 1,receitas[i].nomeReceita);
+    }
+    printf("\n");
+}
+int validarOpção(int opcao, int total)
+{
+    if(opcao < 1 || opcao > total)
+    {
+        printf("Erro: numero invalido, escolha um indice %d.\n\n",total);
+        return 0;
+    }
+    return 1;
+}
+void exibirReceita(struct Receita receitas[],int total,int indice)
+{
+    printf("\n--- Receita selecionada ---\n");
+    printf("Nome: %s\n",receitas[indice].nomeReceita);
+    printf("modo de preparo: %s\n",receitas[indice].mododePreparo);
+    printf("quantidade de ingredientes: %d\n\n",receitas[indice].quantidade);
+}
+
+
 int main()
 {
-
     struct Receita receita[20];
     strcpy(receita[0].nomeReceita,"Pizza");
+    strcpy(receita[0].mododePreparo,"Prepare a massa , espalhe o molho,adicione queijo e asse por 20 minutos");
+    receita[0].quantidade = 13;
+    strcpy(receita[1].nomeReceita,"bolo de chocolate");
+    strcpy(receita[1].mododePreparo,"misture farinha,acucar , chocolate,ovos, e asse por 35 minutos");
+    receita[1].quantidade = 11;
+    strcpy(receita[2].nomeReceita,"barra de chocolate");
+    strcpy(receita[2].mododePreparo,"Derreta o chocolate , adicione nozes e resfrie em moldes");
+    receita[2].quantidade = 5;
+    strcpy(receita[3].nomeReceita,"pastel");
+    strcpy(receita[3].mododePreparo,"recheie a massa , dobre e frite ate dourar");
+    receita[3].quantidade = 10;
+    strcpy(receita[4].nomeReceita,"temaki");
+    strcpy(receita[4].mododePreparo,"enrrole o arroz e o peixe em alga nori");
+    receita[4].quantidade = 12;
+    strcpy(receita[5].nomeReceita,"feijoada carioca");
+    strcpy(receita[5].mododePreparo,"cozinhe feijao preto com carnes defumadas e sirva com arroz");
+    receita[5].quantidade = 18;
+    strcpy(receita[6].nomeReceita,"tacos de carne moida");
+    strcpy(receita[6].mododePreparo,"prepare carne temperada e sirva em tortilhas com vegetais");
+    receita[6].quantidade = 19;
+    strcpy(receita[7].nomeReceita,"salmao grelhado com molho de mostarda e mel");
+    strcpy(receita[7].mododePreparo,"grelhe o salmao e sirva com molho de mostarda e mel");
+    receita[7].quantidade = 16;
+    strcpy(receita[8].nomeReceita, "Hamburguer Caseiro de Carne e Bacon");
+    strcpy(receita[8].mododePreparo, "Modele a carne, grelhe com bacon e monte o hamburguer.");
+    receita[8].quantidade = 12;
+    strcpy(receita[9].nomeReceita, "Chili com Carne e Feijao");
+    strcpy(receita[9].mododePreparo, "Cozinhe carne moída com feijao, tomate e especiarias.");
+    receita[9].quantidade = 17;
+    strcpy(receita[10].nomeReceita, "Coxinha de Frango");
+    strcpy(receita[10].mododePreparo, "Prepare a massa, recheie com frango desfiado e frite.");
+    receita[10].quantidade = 15;
+    strcpy(receita[11].nomeReceita, "Bife com Molho");
+    strcpy(receita[11].mododePreparo, "Grelhe o bife e sirva com molho de sua escolha.");
+    receita[11].quantidade = 14;
+    strcpy(receita[12].nomeReceita, "Torta de Limao");
+    strcpy(receita[12].mododePreparo, "Prepare a massa, recheie com creme de limao e asse.");
+    receita[12].quantidade = 10;
+    strcpy(receita[13].nomeReceita, "Lasanha de Carne com Queijo");
+    strcpy(receita[13].mododePreparo, "Monte camadas de massa, carne e queijo, e asse.");
+    receita[13].quantidade = 20;
+    strcpy(receita[14].nomeReceita, "Escondidinho de Carne Seca com Pure de Mandioquinha");
+    strcpy(receita[14].mododePreparo, "Monte camadas de carne seca e pure, e asse ate dourar.");
+    receita[14].quantidade = 16;
+    strcpy(receita[15].nomeReceita, "Creme Brulee");
+    strcpy(receita[15].mododePreparo, "Prepare o creme, leve ao forno e caramelize o acucar.");
+    receita[15].quantidade = 6;
+    strcpy(receita[16].nomeReceita, "Tabule de Quinoa");
+    strcpy(receita[16].mododePreparo, "Misture quinoa cozida, hortela, tomate e temperos.");
+    receita[16].quantidade = 10;
+    strcpy(receita[17].nomeReceita, "Sopa de Abóbora com Gengibre");
+    strcpy(receita[17].mododePreparo, "Cozinhe a abobora com gengibre, bata no liquidificador e sirva.");
+    receita[17].quantidade = 10;
+    strcpy(receita[18].nomeReceita, "Espaguete ao Pesto de Manjericao");
+    strcpy(receita[18].mododePreparo, "Cozinhe o espaguete e misture com molho pesto.");
+    receita[18].quantidade = 7;
+    strcpy(receita[19].nomeReceita, "Moqueca Baiana de Peixe");
+    strcpy(receita[19].mododePreparo, "Cozinhe o peixe com leite de coco, pimentões e azeite de dende.");
+    receita[19].quantidade = 17;
 
-    char listaReceita [20][100];
-    char opcao[200];
-    int encontrou;
-
-
-    strcpy(listaReceita[0],"Pizza");
-    strcpy(listaReceita[1],"bolo de chocolate\n");
-    strcpy(listaReceita[2],"barra de chocolate\n");
-    strcpy(listaReceita[3],"pastel\n");
-    strcpy(listaReceita[4],"temaki\n");
-    strcpy(listaReceita[5],"Feijoada Carioca\n");
-    strcpy(listaReceita[6],"Tacos de Carne Moida\n" );
-    strcpy(listaReceita[7],"Salmao Grelhado com Molho de Mostarda e Mel\n");
-    strcpy(listaReceita[8],"Hamburguer Caseiro de Carne e Bacon\n");
-    strcpy(listaReceita[9],"Chili com Carne e Feijao\n");
-    strcpy(listaReceita[10],"coxinha de frango\n");
-    strcpy(listaReceita[11],"bife com molho\n");
-    strcpy(listaReceita[12],"torta de limao\n");
-    strcpy(listaReceita[13],"lasanha de carne com queijo\n");
-    strcpy(listaReceita[14],"Escondidinho de Carne Seca com Pure de Mandioquinha\n");
-    strcpy(listaReceita[15],"Creme Brulee\n");
-    strcpy(listaReceita[16],"Tabule de Quinoa\n");
-    strcpy(listaReceita[17],"Sopa de Abobora com Gengibre\n");
-    strcpy(listaReceita[18],"Espaguete ao Pesto de Manjericao\n");
-    strcpy(listaReceita[19],"Moqueca Baiana de Peixe\n");
-
-    fgets(opcao, 200, stdin);
-
-    int quantidade [20];
-    quantidade[0] = 13;
-    quantidade[1] = 11;
-    quantidade[2] = 5;
-    quantidade[3] = 10;
-    quantidade[4] = 12;
-    quantidade[5] = 18;
-    quantidade[6] = 19;
-    quantidade[7] = 16;
-    quantidade[8] = 12;
-    quantidade[9] = 17;
-    quantidade[10] = 15;
-    quantidade[11] = 14;
-    quantidade[12] = 10;
-    quantidade[13] = 20;
-    quantidade[14] = 16;
-    quantidade[15] = 6;
-    quantidade[16] = 10;
-    quantidade[17] = 10;
-    quantidade[18] = 7;
-    quantidade[19] = 17;
-
-    for(int  i = 0; i < 20; i++){
-        printf("receita %s %d:",listaReceita[i],i);
-    }
-    for(int i = 0; i < 20; i++)
-    {
-        if(strcmp(opcao,listaReceita[i])==0)
-        {
-            printf("%s\n",listaReceita[i]);
-
-            printf("%d\n",quantidade[i]);
-
-            encontrou =1;
-
-        }
-        if(encontrou == 1)
-        {
-            break;
-        }
-    }
-    if(encontrou == 0)
-    {
-        printf("nao encontrou\n");
-    }
-
-
-
+    int totalReceitas = 3;
+    int opcao;
+    listarReceitas(receita,totalReceitas);
+    printf("Escolha o indice da receita que quer visualizar:");
+    scanf("%d",&opcao);
+    exibirReceita(receita,totalReceitas,opcao-1);
     return 0;
 }
+
