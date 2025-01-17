@@ -93,11 +93,18 @@ int main()
     strcpy(receita[19].mododePreparo, "Cozinhe o peixe com leite de coco, pimentões e azeite de dende.");
     receita[19].quantidade = 17;
 
-    int totalReceitas = 3;
+    int totalReceitas;
     int opcao;
     listarReceitas(receita,totalReceitas);
-    printf("Escolha o indice da receita que quer visualizar:");
-    scanf("%d",&opcao);
+
+
+    do {
+        printf("Escolha o índice da receita que deseja visualizar: ");
+        scanf("%d", &opcao);
+    } while (!validarOpção(opcao, totalReceitas));
+
+
+
     exibirReceita(receita,totalReceitas,opcao-1);
     return 0;
 }
