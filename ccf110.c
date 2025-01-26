@@ -8,6 +8,7 @@ void salvarReceitaEmArquivo(const struct Receita *receitas) {
         printf("Erro ao criar o arquivo: %s\n", receitas->nomeArquivo);
         return;
     }
+    
     fprintf(file, "Nome da Receita: %s\n", receitas->nomeReceita);
     fprintf(file, "Modo de Preparo:\n%s\n", receitas->mododePreparo);
     fclose(file);
