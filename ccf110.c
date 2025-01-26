@@ -2,7 +2,6 @@
 #include "Receita.h"
 #include <string.h>
 
-
 void salvarReceitaEmArquivo(const struct Receita *receitas) {
     FILE *file = fopen(receitas->nomeArquivo, "w");
     if (file == NULL) {
@@ -32,7 +31,6 @@ void lerArquivoReceita(const char *nomeArquivo) {
 }
 
 void listarReceitas(struct Receita *receitas,int total)
-
 {
     printf("Receitas disponiveis:\n");
     for(int i =0; i < total; i++)
@@ -41,6 +39,7 @@ void listarReceitas(struct Receita *receitas,int total)
     }
     printf("\n");
 }
+
 int validarOpção(int opcao, int total)
 {
     if(opcao < 1 || opcao > total)
@@ -50,6 +49,7 @@ int validarOpção(int opcao, int total)
     }
     return 1;
 }
+
 void exibirReceita(struct Receita receitas[],int total,int indice)
 {
     printf("\n--- Receita selecionada ---\n");
@@ -57,8 +57,6 @@ void exibirReceita(struct Receita receitas[],int total,int indice)
     printf("modo de preparo: %s\n",receitas[indice].mododePreparo);
     printf("quantidade de ingredientes: %d\n\n",receitas[indice].quantidade);
 }
-
-
 
 int main()
 {
