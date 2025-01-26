@@ -82,7 +82,6 @@ int main()
     {"sopa de abobora com gengibre", "sopa de abobora com gengibre.txt", "cozinhe a abobora com gengibre , bata no liquidificador e sirva", 15},
     {"espaguete ao pesto de manjericao ", "espaguete ao pesto de manjericao.txt", "cozinhe o espaguete e misture com molho pesto", 15},
     {"moqueca baiana de peixe", "moqueca baiana de peixe.txt", "cozinhe o peixe com leite de coco , pimentoes e azeite de dende", 15},
-    {"Bolinhos de Batata Doce e Atum","Bolinhos de Batata Doce e Atum.txt","Lave bem as batatas-doces e cozinhe até ficarem macias. Você pode cozinhá-las na água ou até no micro-ondas, se preferir mais rápido. Deixe esfriar um pouco e amasse bem até virar um purê.",6},
         };
     int totalReceitas = sizeof(receitas)/sizeof(receitas[0]);
 
